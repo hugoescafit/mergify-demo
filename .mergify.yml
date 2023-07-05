@@ -1,0 +1,14 @@
+queue_rules:
+  - name: default
+    merge_conditions:
+      - label=merge
+pull_request_rules:
+  - name: Alert on dependency updates
+    conditions:
+      - files~=package.json
+    actions:
+      label:
+        add:
+          - dependency update
+      queue:
+        name: default
